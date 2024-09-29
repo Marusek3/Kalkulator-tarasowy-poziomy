@@ -1,0 +1,215 @@
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 5px;
+}
+
+:root {
+  --czerwony: #E02B20;
+  --czarny: #000000;
+  --szary-jasny: #EFEFEF;
+  --szary-ciemny: #D1D1D1;
+  --niebieski-jasny: rgb(0, 195, 255);
+}
+
+/* Główna struktura kolorów */
+.color-options {
+  display: flex;
+  gap: 9px;
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-snap-type: x mandatory; /* Ułatwia przewijanie */
+}
+
+.color-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  flex: 0 0 auto;
+  margin-left: 11px;
+  scroll-snap-align: center; /* Zaczepia na środku ekranu */
+}
+
+.color-option input[type="radio"] {
+  display: none;
+}
+
+.color-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 110px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 10px;
+  transition: border-color 0.3s;
+  background-color: var(--szary-jasny);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.color-container img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+
+.color-container span {
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.color-option input[type="radio"]:checked + .color-container {
+  border-color: var(--niebieski-jasny);
+}
+
+/* Wygląd formularza */
+.linia {
+  font-size: large;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Ustawia wyrównanie etykiety i inputu */
+}
+
+.nazwa {
+  flex-basis: 100%; /* Szerokość etykiety */
+  text-align: left;
+}
+
+input[type="number"], 
+select {
+  flex-basis: 30%; /* Szerokość pola input */
+  text-align: right;
+  background-color: var(--szary-jasny);
+  border: none;
+  height: 17px;
+  display: flex;
+  align-content: space-evenly;
+  border-radius: 4px;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 0px;
+}
+
+#submit {
+  background-color: #E02B20;
+  color: white;
+  border: none;
+  padding: 8px;
+  font-size: large;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  margin-top: 6px;
+}
+
+#parametry {
+  display: flex;
+  flex-direction: column;
+}
+
+#cena {
+  margin-top: 5px;
+}
+
+/* Główne ustawienia strony */
+body {
+  display: flex;
+  justify-content: center;  /* Wyśrodkowanie poziome */
+  align-items: flex-start;   /* Formularz zaczyna się od góry */
+  min-height: 100vh;         /* Pełna wysokość ekranu */
+  margin: 0;                 /* Usuwa domyślne marginesy */
+}
+
+form {
+  width: 100%;
+  max-width: 525px;           /* Maksymalna szerokość formularza */
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);  /* Cieniowanie formularza */
+  margin: 20px;
+  margin-top: 5vh;           /* Ustawienie formularza 25% od góry */
+}
+
+/* Stylizacja na urządzeniach mobilnych */
+@media (max-width: 768px) {
+  body {
+    align-items: flex-start; /* Formularz będzie ustawiony na górze */
+  }
+
+  form {
+    margin-top: 20vh; /* Formularz zaczyna się 25% od góry ekranu */
+  }
+
+  h1 {
+    font-size: 1.5em; /* Mniejszy nagłówek na mniejszych ekranach */
+  }
+
+  .color-container {
+    width: 80px;
+    height: 110px;
+  }
+
+  .color-container img {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media (max-width: 600px) {
+  form {
+    padding: 10px;
+    max-width: 100%; /* Formularz zajmuje całą szerokość ekranu */
+  }
+}
+p {
+  color: rgb(175, 175, 175);
+  font-size: small;
+}
+#przypis {
+  display: flex;
+}
+#kontakt{
+  color: red;
+}
+.info-container {
+  position: relative;
+  display: inline-block;
+}
+
+.info-icon {
+  cursor: pointer;
+  margin-bottom: 0px;
+  vertical-align: middle;  /* Wyrównanie ikony z linią tekstu */
+  font-size: 14px;         /* Dopasowanie rozmiaru ikony, jeśli potrzebne */
+  line-height: 1;          /* Dopasowanie wysokości w linii */
+}
+
+.tooltip {
+  display: none;            /* Domyślnie ukryte */
+  position: absolute;       /* Pozycjonowanie względem rodzica */
+  background-color: #fff;   /* Tło przypisu */
+  border: 1px solid #E02B20; /* Obrys */
+  padding: 5px;           /* Przestrzeń wewnętrzna */
+  z-index: 1;              /* Aby przypis był na wierzchu */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Cień */
+}
+
+.close-tooltip {
+  display: block;
+  color: #E02B20;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: right;
+}

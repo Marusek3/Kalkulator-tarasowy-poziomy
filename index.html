@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kalkulator wyceny</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <form>
+        <h1>WYCENA ŻALUZJI TARASOWYCH</h1><br>
+        <div id="parametry">
+            <div class="linia">
+                <label for="wysokosc" class="nazwa">Wysokość powierzchni:
+                    <div class="info-container">
+                        <span class="info-icon" onclick="toggleTooltip()"><img src="/zdjecia/info_icon.png" width="17px"></span>
+                        <div class="tooltip" id="tooltip">
+                            <span class="close-tooltip" onclick="hideTooltip()">X</span>
+                            <img src="/zdjecia/image000002019002.jpg">
+                        </div>
+                    </div>
+                    
+                </label>
+                <input type="number" name="wysokosc" placeholder="cm" id="wysokosc" required><br>
+            </div>
+            <div class="linia">
+                <label for="szerokosc" class="nazwa">Szerokość powierzchni: <div class="info-container">
+                    <span class="info-icon" onclick="toggleTooltip()"><img src="/zdjecia/info_icon.png" width="17px"></span>
+                    <div class="tooltip" id="tooltip">
+                        To jest przypis, który wyświetli się po kliknięciu na ikonę.
+                        <span class="close-tooltip" onclick="hideTooltip()">X</span>
+                    </div>
+                </div></label>
+                <input type="number" name="szerokosc" placeholder="cm" id="szerokosc" required><br>
+            </div>
+            <div class="linia">
+                <label for="lewy_bok" class="nazwa">Lewa strona: <div class="info-container">
+                    <span class="info-icon" onclick="toggleTooltip()"><img src="/zdjecia/info_icon.png" width="17px"></span>
+                    <div class="tooltip" id="tooltip">
+                        To jest przypis, który wyświetli się po kliknięciu na ikonę.
+                        <span class="close-tooltip" onclick="hideTooltip()">X</span>
+                    </div>
+                </div></label>
+                <select name="lewy_bok" id="lewy_bok" class="wybor">
+                    <option value="slupek">Słupek</option>
+                    <option value="elewacja">Elewacja</option>
+                    <option value="nic">Nic</option>
+                </select><br>
+            </div>
+            <div class="linia">
+                <label for="prawy_bok" class="nazwa">Prawa strona: <div class="info-container">
+                    <span class="info-icon" onclick="toggleTooltip()"><img src="/zdjecia/info_icon.png" width="17px"></span>
+                    <div class="tooltip" id="tooltip">
+                        <img src="/zdjecia/image000002019002.jpg" alt="">
+                        <span class="close-tooltip" onclick="hideTooltip()">X</span>
+                    </div>
+                </div></label>
+                <select name="prawy_bok" id="prawy_bok" class="wybor">
+                    <option value="slupek">Słupek</option>
+                    <option value="elewacja">Elewacja</option>
+                    <option value="nic">Nic</option>
+                </select><br>
+            </div>
+            <div class="linia">
+                <label for="gora" class="nazwa">Góra: <div class="info-container">
+                    <span class="info-icon" onclick="toggleTooltip()"><img src="/zdjecia/info_icon.png" width="17px"></span>
+                    <div class="tooltip" id="tooltip">
+                        To jest przypis, który wyświetli się po kliknięciu na ikonę.
+                        <span class="close-tooltip" onclick="hideTooltip()">X</span>
+                    </div>
+                </div></label>
+                <select name="gora" id="gora" class="wybor">
+                    <option value="slupek">Słupek</option>
+                    <option value="elewacja">Elewacja</option>
+                    <option value="nic">Nic</option>
+                </select><br>
+            </div>
+        </div>
+        <div id="kolor" class="color-options">
+            <label class="color-option">
+                <input type="radio" name="kolor" value="drewnopodobne" required>
+                <div class="color-container">
+                    <img src="/zdjecia/kolory_winchester.jpg" alt="Winchester">
+                    <span>Winchester</span>
+                </div>
+            </label>
+
+            <label class="color-option">
+                <input type="radio" name="kolor" value="drewnopodobne" required>
+                <div class="color-container">
+                    <img src="/zdjecia/kolory_zlotydab.jpg" alt="Złoty dąb">
+                    <span>Złoty dąb</span>
+                </div>
+            </label>
+            <label class="color-option">
+                <input type="radio" name="kolor" value="drewnopodobne" required>
+                <div class="color-container">
+                    <img src="/zdjecia/kolory_orzech.jpg" alt="Orzech">
+                    <span>Orzech</span>
+                </div>
+            </label>
+            <label class="color-option">
+                <input type="radio" name="kolor" value="standardowy" required>
+                <div class="color-container">
+                    <img src="/zdjecia/kolory_antracyt.jpg" alt="Antracyt">
+                    <span>Antracyt</span>
+                </div>
+            </label>
+
+            <label class="color-option">
+                <input type="radio" name="kolor" value="standardowy" required>
+                <div class="color-container">
+                    <img src="/zdjecia/kolory_czarny.jpg" alt="Czarny">
+                    <span>Czarny</span>
+                </div>
+            </label>
+
+
+            <label class="color-option">
+                <input type="radio" name="kolor" value="standardowy" required>
+                <div class="color-container">
+                    <img src="/zdjecia/kolory_braz.jpg" alt="Brąz">
+                    <span>Brąz</span>
+                </div>
+            </label>
+            <label class="color-option">
+                <input type="radio" name="kolor" value="standardowy" required>
+                <div class="color-container">
+                    <img src="/zdjecia/kolory_bialy.jpg" alt="Biały">
+                    <span>Biały</span>
+                </div>
+            </label>
+        </div>
+        </div>
+        <h2 id="cena">[Cena]</h2>
+        <input type="button" value="WYCENA" id="submit">
+        <div id="przypis">
+            <p>Wycenę żaluzji tarasowych możesz otrzymać także kontaktując się z nami telefonicznie: <span
+                    id="kontakt">509 665 145</span> lub mailowo: <span id="kontakt">biuro@blach-met.com</span></p>
+        </div>
+
+    </form>
+</body>
+
+</html>
